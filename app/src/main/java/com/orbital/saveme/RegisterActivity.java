@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
                     String email = etRegisterEmail.getText().toString().trim();
                     String password = etRegisterPassword.getText().toString().trim();
 
+                    firebaseAuth = FirebaseAuth.getInstance();
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
