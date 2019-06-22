@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePageActivity">
+
+    <ImageButton
+        android:id="@+id/btnRabbit"
+
+        android:layout_width="150dp"
+        android:layout_height="275dp"
+
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgTable"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.9"
+
+        app:srcCompat="@drawable/ic_pet_rabbit" />
+
+    <ImageButton
+        android:id="@+id/btnMenuBar"
+        android:layout_width="111dp"
+        android:layout_height="120dp"
+
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnRabbit"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnIncomeExpenditure"
+        app:layout_constraintVertical_bias="0.267"
+
+        app:srcCompat="@drawable/ic_menu_bar" />
+
+    <ImageButton
+        android:id="@+id/btnIncomeExpenditure"
+        android:layout_width="111dp"
+        android:layout_height="120dp"
+
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnRabbit"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgTable"
+        app:layout_constraintVertical_bias="0.063"
+
+        app:srcCompat="@drawable/ic_expenditure" />
+
+    <ImageView
+        android:id="@+id/imgTable"
+
+        android:layout_width="360dp"
+        android:layout_height="180dp"
+
+        android:background="#00FFFFFF"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191"
+
+        app:srcCompat="@drawable/ic_table" />
+
+    <ImageButton
+        android:id="@+id/btnStatistics"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintBottom_toBottomOf="@id/imgTable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.263"
+
+        app:srcCompat="@drawable/ic_statistics" />
+
+    <TextView
+        android:id="@+id/textStatistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Statistics"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+
+        app:layout_constraintBottom_toBottomOf="@id/btnStatistics"
+        app:layout_constraintEnd_toEndOf="@id/btnStatistics"
+        app:layout_constraintStart_toStartOf="@id/btnStatistics"
+        app:layout_constraintTop_toTopOf="@id/btnStatistics"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.54" />
+
+    <TextView
+        android:id="@+id/textMenuBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Settings"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@id/btnMenuBar"
+        app:layout_constraintEnd_toEndOf="@id/btnMenuBar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/btnMenuBar"
+        app:layout_constraintTop_toTopOf="@id/btnMenuBar"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <TextView
+        android:id="@+id/textIncomeExpenditure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Enter income/expenditure"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@id/btnIncomeExpenditure"
+        app:layout_constraintEnd_toEndOf="@id/btnIncomeExpenditure"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/btnIncomeExpenditure"
+        app:layout_constraintTop_toTopOf="@id/btnIncomeExpenditure"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="User name"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@id/btnRabbit"
+        app:layout_constraintEnd_toEndOf="@id/btnRabbit"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@id/btnRabbit"
+        app:layout_constraintTop_toTopOf="@id/btnRabbit"
+        app:layout_constraintVertical_bias="1.0" />
+
+</android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
