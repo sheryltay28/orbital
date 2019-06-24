@@ -18,10 +18,10 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgTable"
-        app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintVertical_bias="0.012"
 
         app:srcCompat="@drawable/ic_pet_rabbit" />
 
@@ -35,10 +35,10 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnRabbit"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnIncomeExpenditure"
-        app:layout_constraintVertical_bias="0.267"
+        app:layout_constraintVertical_bias="0.181"
 
         app:srcCompat="@drawable/ic_menu_bar" />
 
@@ -52,10 +52,10 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnRabbit"
-        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgTable"
-        app:layout_constraintVertical_bias="0.063"
+        app:layout_constraintVertical_bias="0.031"
 
         app:srcCompat="@drawable/ic_expenditure" />
 
@@ -69,10 +69,11 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191"
 
+        app:layout_constraintVertical_bias="0.081"
         app:srcCompat="@drawable/ic_table" />
 
     <ImageButton
@@ -85,36 +86,40 @@
 
         app:layout_constraintBottom_toBottomOf="@id/imgTable"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263"
+        app:layout_constraintVertical_bias="0"
 
         app:srcCompat="@drawable/ic_statistics" />
 
-    <TextView
+    <Button
         android:id="@+id/textStatistics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="20dp"
 
         android:text="Statistics"
+        android:textSize="11dp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
+        android:background="@android:color/white"
 
         app:layout_constraintBottom_toBottomOf="@id/btnStatistics"
         app:layout_constraintEnd_toEndOf="@id/btnStatistics"
         app:layout_constraintStart_toStartOf="@id/btnStatistics"
         app:layout_constraintTop_toTopOf="@id/btnStatistics"
-        app:layout_constraintVertical_bias="0.25"
-        app:layout_constraintHorizontal_bias="0.54" />
+        app:layout_constraintVertical_bias="0.24"
+        app:layout_constraintHorizontal_bias="0.55" />
 
-    <TextView
+    <Button
         android:id="@+id/textMenuBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="20dp"
 
         android:text="Settings"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
+        android:background="@android:color/white"
 
         app:layout_constraintBottom_toBottomOf="@id/btnMenuBar"
         app:layout_constraintEnd_toEndOf="@id/btnMenuBar"
@@ -123,37 +128,39 @@
         app:layout_constraintTop_toTopOf="@id/btnMenuBar"
         app:layout_constraintVertical_bias="0.75" />
 
-    <TextView
+    <Button
         android:id="@+id/textIncomeExpenditure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
 
+        android:background="@android:color/white"
         android:text="Enter income/expenditure"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="@id/btnIncomeExpenditure"
         app:layout_constraintEnd_toEndOf="@id/btnIncomeExpenditure"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/btnIncomeExpenditure"
         app:layout_constraintTop_toTopOf="@id/btnIncomeExpenditure"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
+    <Button
         android:id="@+id/textPet"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
 
         android:text="User name"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
+        android:background="@android:color/white"
 
-        app:layout_constraintBottom_toBottomOf="@id/btnRabbit"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/btnRabbit"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/btnRabbit"
-        app:layout_constraintTop_toTopOf="@id/btnRabbit"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@id/btnRabbit"
+        app:layout_constraintVertical_bias="0" />
 
 </android.support.constraint.ConstraintLayout>
 

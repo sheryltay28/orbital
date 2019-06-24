@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".HomePageActivity"></activity>
-        <activity android:name=".ExpenditureActivity"></activity>
-        <activity android:name=".MenuBarActivity"></activity>
-        <activity android:name=".PetActivity"></activity>
-        <activity android:name=".StatisticsActivity"></activity>
+        <activity android:name=".ExpenditureEntryActivity"></activity>
+        <activity android:name=".IncomeEntryActivity" />
+        <activity android:name=".IncomeExpenditureHomepageActivity" />
+        <activity android:name=".MenuBarActivity" />
+        <activity android:name=".StatisticsActivity" />
+        <activity android:name=".PetActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".HomePageActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
