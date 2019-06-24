@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextView tvRegister, tvLoginActivity;
-    private EditText etName, etRegisterPhoneNumber, etRegisterEmail, etRegisterPassword;
+    private EditText etName, etRegisterPhoneNumber, etRegisterEmail, etRegisterPassword, etRegisterPasswordAgain;
     private Button btnRegister;
     private FirebaseAuth firebaseAuth;
 
@@ -40,13 +40,13 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT);
+                                Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 // direct user to MainActivity
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
                                 Intent i = new Intent(RegisterActivity.this, MainActivity.class);
                                 startActivity(i);
                             } else {
-                                Toast.makeText(RegisterActivity.this, "Registration Unsuccessful", Toast.LENGTH_SHORT);
+                                Toast.makeText(RegisterActivity.this, "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -71,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
         etRegisterPhoneNumber = findViewById(R.id.etRegisterPhoneNumber);
         etRegisterEmail = findViewById(R.id.etRegisterEmail);
         etRegisterPassword = findViewById(R.id.etRegisterPassword);
+        etRegisterPasswordAgain = findViewById(R.id.etRegisterPasswordAgain);
         btnRegister = findViewById(R.id.btnRegister);
     }
 
@@ -84,7 +85,23 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (name.isEmpty() || number.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please make sure all boxes are filled", Toast.LENGTH_SHORT).show();
+        } else if (password.length() < 6) {
+            Toast.makeText(RegisterActivity.this, "Please make sure password has at least 6 characters", Toast.LENGTH_SHORT).show();
+        } else if (!samePassword()) {
+            Toast.makeText(RegisterActivity.this, "Please make sure both passwords entered are the same", Toast.LENGTH_SHORT).show();
         } else {
+            result = true;
+        }
+        return result;
+    }
+
+    private boolean samePassword() {
+        Boolean result = false;
+
+        String password = etRegisterPassword.getText().toString();
+        String secondPassword = etRegisterPasswordAgain.getText().toString();
+
+        if (password.equals(secondPassword)) {
             result = true;
         }
         return result;
