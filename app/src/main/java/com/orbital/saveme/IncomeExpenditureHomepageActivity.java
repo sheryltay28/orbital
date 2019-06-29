@@ -2,7 +2,9 @@ package com.orbital.saveme;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -23,22 +25,21 @@ public class IncomeExpenditureHomepageActivity extends AppCompatActivity {
     public void setUpBtn() {
         incomeButton = findViewById(R.id.btnIncome);
         expenditureButton = findViewById(R.id.btnExpenditure);
-        backButton = findViewById(R.id.btnBack);
     }
 
     public void clickBack() {
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openHomePage();
-            }
-        });
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
-    public void openHomePage() {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
         Intent i = new Intent(IncomeExpenditureHomepageActivity.this,
                 HomePageActivity.class);
-        startActivity(i);
+        startActivityForResult(i, 0);
+        return true;
     }
 
     public void clickIncome() {

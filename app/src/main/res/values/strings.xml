@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SaveMe</string>
+    <string name="logout">Logout</string>
+    <string name="type_of_expenditure">Type of Expenditure</string>
+    <string name="amount">Amount</string>
+    <string name="submit">Submit</string>
+    <string name="type_of_income">Type of Income</string>
+    <string name="expenditure_type">Expenditure Type</string>
 </resources>

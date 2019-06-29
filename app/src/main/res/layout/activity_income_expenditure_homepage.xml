@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePageActivity">
+    tools:context=".IncomeExpenditureHomepageActivity">
 
     <ImageButton
         android:id="@+id/btnIncome"
@@ -42,19 +42,6 @@
         app:layout_constraintVertical_bias="0.48"
 
         app:srcCompat="@drawable/ic_card" />
-
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189"
-        app:srcCompat="@drawable/ic_backarrow" />
 
 </android.support.constraint.ConstraintLayout>
 

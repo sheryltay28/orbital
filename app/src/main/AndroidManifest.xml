@@ -14,7 +14,9 @@
         <activity android:name=".IncomeExpenditureHomepageActivity" />
         <activity android:name=".MenuBarActivity" />
         <activity android:name=".StatisticsActivity" />
-        <activity android:name=".PetActivity" />
+        <activity android:name=
+
+            ".PetActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomePageActivity" />
         <activity android:name=".MainActivity">
