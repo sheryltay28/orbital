@@ -15,12 +15,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextView tvRegister, tvLoginActivity;
     private EditText etName, etRegisterPhoneNumber, etRegisterEmail, etRegisterPassword, etRegisterPasswordAgain;
     private Button btnRegister;
     private FirebaseAuth firebaseAuth;
+    private String name, number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                uploadUserData();
                                 Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 // direct user to MainActivity
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -78,8 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean validate() {
         Boolean result = false;
 
-        String name = etName.getText().toString();
-        String number = etRegisterPhoneNumber.getText().toString();
+        name = etName.getText().toString();
+        number = etRegisterPhoneNumber.getText().toString();
         String email = etRegisterEmail.getText().toString();
         String password = etRegisterPassword.getText().toString();
 
@@ -105,5 +109,12 @@ public class RegisterActivity extends AppCompatActivity {
             result = true;
         }
         return result;
+    }
+
+    private void uploadUserData() {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        User user = new User(name, number);
+        myRef.setValue(user);
     }
 }
