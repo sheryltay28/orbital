@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.orbital.saveme.model.Expenditure;
+import com.orbital.saveme.model.Transaction;
 
 import java.util.Date;
 
@@ -47,8 +47,8 @@ public class ExpenditureEntryActivity extends AppCompatActivity {
         String expenditureType = etExpenditureType.getText().toString();
         double amount = Double.parseDouble(etAmount.getText().toString());
         String date = new Date().toString();
-        Expenditure expenditure = new Expenditure(expenditureType, amount);
-        mReference.child("expenditures").child(mUser.getUid()).child(date).setValue(expenditure);
+        Transaction transaction = new Transaction("EXPENDITURE", expenditureType, amount);
+        mReference.child("expenditures").child(mUser.getUid()).child(date).setValue(transaction);
         startActivity(new Intent(this, HomePageActivity.class));
         finish();
     }

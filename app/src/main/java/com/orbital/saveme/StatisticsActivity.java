@@ -13,8 +13,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.orbital.saveme.adapter.ExpenditureAdapter;
-import com.orbital.saveme.model.Expenditure;
+import com.orbital.saveme.adapter.TransactionAdapter;
+import com.orbital.saveme.model.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +23,8 @@ public class StatisticsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-    private ExpenditureAdapter expenditureAdapter;
-    private List<Expenditure> mExpenditure;
+    private TransactionAdapter transactionAdapter;
+    private List<Transaction> mTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class StatisticsActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mExpenditure = new ArrayList<>();
+        mTransaction = new ArrayList<>();
 
         readExpenditure();
     }
@@ -43,18 +43,18 @@ public class StatisticsActivity extends AppCompatActivity {
     private void readExpenditure() {
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference mReference = FirebaseDatabase.getInstance()
-                .getReference("expenditures").child(firebaseUser.getUid());
+                .getReference("transactions").child(firebaseUser.getUid());
 
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mExpenditure.clear();
+                mTransaction.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Expenditure expenditure = snapshot.getValue(Expenditure.class);
-                    mExpenditure.add(expenditure);
+                    Transaction transaction = snapshot.getValue(Transaction.class);
+                    mTransaction.add(transaction);
                 }
-                expenditureAdapter = new ExpenditureAdapter(getApplicationContext(), mExpenditure);
-                recyclerView.setAdapter(expenditureAdapter);
+                transactionAdapter = new TransactionAdapter(getApplicationContext(), mTransaction);
+                recyclerView.setAdapter(transactionAdapter);
 
             }
 

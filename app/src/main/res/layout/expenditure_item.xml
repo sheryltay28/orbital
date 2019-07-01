@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="$1.00"
-        android:layout_below="@id/tvExpenditure"
-        android:padding="10dp"/>
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"/>
 
 
 
