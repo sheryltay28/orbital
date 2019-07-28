@@ -5,163 +5,201 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ghostWhite"
     tools:context=".HomePageActivity">
 
     <ImageButton
-        android:id="@+id/btnRabbit"
+        android:id="@+id/btnSetting"
+        android:background="@color/transparent"
+        android:scaleType="centerCrop"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@id/btnAmtSavedData"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/btnAmtSavedData"
+        app:layout_constraintTop_toTopOf="@id/btnAmtSavedData"
+        app:srcCompat="@drawable/ic_settings" />
 
+    <ImageButton
+        android:id="@+id/btnPet"
+        android:background="@color/transparent"
+        android:scaleType="centerCrop"
         android:layout_width="150dp"
         android:layout_height="275dp"
-
-        android:background="#00FFFFFF"
-        android:scaleType="centerCrop"
-
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgTable"
-        app:layout_constraintVertical_bias="0.012"
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4"
         app:srcCompat="@drawable/ic_pet_rabbit" />
 
-    <ImageButton
-        android:id="@+id/btnMenuBar"
-        android:layout_width="111dp"
-        android:layout_height="120dp"
-
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnRabbit"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnIncomeExpenditure"
-        app:layout_constraintVertical_bias="0.181"
-
-        app:srcCompat="@drawable/ic_menu_bar" />
-
-    <ImageButton
-        android:id="@+id/btnIncomeExpenditure"
-        android:layout_width="111dp"
-        android:layout_height="120dp"
-
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnRabbit"
-        app:layout_constraintHorizontal_bias="0.816"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgTable"
-        app:layout_constraintVertical_bias="0.031"
-
-        app:srcCompat="@drawable/ic_expenditure" />
-
-    <ImageView
-        android:id="@+id/imgTable"
-
-        android:layout_width="360dp"
-        android:layout_height="180dp"
-
-        android:background="#00FFFFFF"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.081"
-        app:srcCompat="@drawable/ic_table" />
-
-    <ImageButton
-        android:id="@+id/btnStatistics"
-        android:layout_width="200dp"
-        android:layout_height="120dp"
-
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-
-        app:layout_constraintBottom_toBottomOf="@id/imgTable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
-
-        app:srcCompat="@drawable/ic_statistics" />
-
     <Button
-        android:id="@+id/textStatistics"
-        android:layout_width="65dp"
-        android:layout_height="20dp"
-
-        android:text="Statistics"
-        android:textSize="11dp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:background="@android:color/white"
-
-        app:layout_constraintBottom_toBottomOf="@id/btnStatistics"
-        app:layout_constraintEnd_toEndOf="@id/btnStatistics"
-        app:layout_constraintStart_toStartOf="@id/btnStatistics"
-        app:layout_constraintTop_toTopOf="@id/btnStatistics"
-        app:layout_constraintVertical_bias="0.24"
-        app:layout_constraintHorizontal_bias="0.55" />
-
-    <Button
-        android:id="@+id/textMenuBar"
-        android:layout_width="75dp"
-        android:layout_height="20dp"
-
-        android:text="Settings"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-        android:background="@android:color/white"
-
-        app:layout_constraintBottom_toBottomOf="@id/btnMenuBar"
-        app:layout_constraintEnd_toEndOf="@id/btnMenuBar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/btnMenuBar"
-        app:layout_constraintTop_toTopOf="@id/btnMenuBar"
-        app:layout_constraintVertical_bias="0.75" />
-
-    <Button
-        android:id="@+id/textIncomeExpenditure"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-
-        android:background="@android:color/white"
-        android:text="Enter income/expenditure"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-
-        app:layout_constraintBottom_toBottomOf="@id/btnIncomeExpenditure"
-        app:layout_constraintEnd_toEndOf="@id/btnIncomeExpenditure"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/btnIncomeExpenditure"
-        app:layout_constraintTop_toTopOf="@id/btnIncomeExpenditure"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/textPet"
+        android:id="@+id/btnUserName"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-
-        android:text="User name"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-        android:background="@android:color/white"
-
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:text=""
+        android:textColor="@color/navy"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/btnRabbit"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/btnRabbit"
-        app:layout_constraintTop_toBottomOf="@id/btnRabbit"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintEnd_toEndOf="@id/btnPet"
+        app:layout_constraintStart_toStartOf="@id/btnPet"
+        app:layout_constraintTop_toBottomOf="@id/btnPet"
+        app:layout_constraintVertical_bias="0.01" />
 
+    <ImageButton
+        android:id="@+id/btnEntry"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/transparent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@id/btnPet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnPet"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="@id/btnPet"
+        app:layout_constraintVertical_bias="0.45"
+        app:srcCompat="@drawable/ic_wallet" />
+
+    <Button
+        android:id="@+id/btnEntryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Data"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnPet"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@id/btnEntry"
+        app:layout_constraintVertical_bias="0"/>
+
+    <Button
+        android:id="@+id/btnAmtSaved"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/amount_saved"
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toTopOf="@id/btnAmtRemain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+
+    <Button
+        android:id="@+id/btnAmtSavedData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toBottomOf="@id/btnAmtSaved"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnAmtSaved"
+        app:layout_constraintTop_toTopOf="@id/btnAmtSaved"
+        app:layout_constraintHorizontal_bias="0.05" />
+
+    <Button
+        android:id="@+id/btnAmtRemain"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Amount remaining:"
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toTopOf="@id/btnPet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"/>
+
+    <Button
+        android:id="@+id/btnAmtRemainData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toBottomOf="@id/btnAmtRemain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnAmtRemain"
+        app:layout_constraintTop_toTopOf="@id/btnAmtRemain"
+        app:layout_constraintHorizontal_bias="0.05"/>
+
+    <Button
+        android:id="@+id/btnIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Income:"
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/btnAmtSaved"
+        app:layout_constraintTop_toBottomOf="@id/btnUserName"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0"/>
+
+    <Button
+        android:id="@+id/btnIncomeData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toBottomOf="@id/btnIncome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnExpenditure"
+        app:layout_constraintTop_toTopOf="@id/btnIncome"
+        app:layout_constraintHorizontal_bias="0.05"/>
+
+    <Button
+        android:id="@+id/btnExpenditure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expenditure:"
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/btnAmtSaved"
+        app:layout_constraintTop_toBottomOf="@id/btnIncome"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0"/>
+
+    <Button
+        android:id="@+id/btnExpenditureData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="textStart"
+        android:background="@color/transparent"
+        android:textColor="@color/navy"
+        app:layout_constraintBottom_toBottomOf="@id/btnExpenditure"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnExpenditure"
+        app:layout_constraintTop_toTopOf="@id/btnExpenditure"
+        app:layout_constraintHorizontal_bias="0.05"/>
 </android.support.constraint.ConstraintLayout>
 
 

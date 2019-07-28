@@ -28,12 +28,8 @@ public class ExpenditureEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expenditure_entry);
-        etExpenditureType = findViewById(R.id.etExpenditureType);
-        etAmount = findViewById(R.id.etAmount);
-        btnSubmit = findViewById(R.id.btnSubmit);
 
-        mUser = FirebaseAuth.getInstance().getCurrentUser();
-        mReference = FirebaseDatabase.getInstance().getReference();
+        setUpBtn();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,12 +39,23 @@ public class ExpenditureEntryActivity extends AppCompatActivity {
         });
     }
 
+    private void setUpBtn() {
+        etExpenditureType = findViewById(R.id.etExpenditureType);
+        etAmount = findViewById(R.id.etAmount);
+        btnSubmit = findViewById(R.id.btnSubmit);
+    }
+
     private void submit() {
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        mReference = FirebaseDatabase.getInstance().getReference();
+
         String expenditureType = etExpenditureType.getText().toString();
         double amount = Double.parseDouble(etAmount.getText().toString());
         String date = new Date().toString();
-        Transaction transaction = new Transaction("EXPENDITURE", expenditureType, amount);
-        mReference.child("transactions").child(mUser.getUid()).child(date).setValue(transaction);
+        Transaction expenditure = new Transaction("EXPENDITURE", expenditureType,
+                amount, date);
+
+        mReference.child(mUser.getUid()).child("TRANSACTIONS").child(date).setValue(expenditure);
         startActivity(new Intent(this, HomePageActivity.class));
         finish();
     }

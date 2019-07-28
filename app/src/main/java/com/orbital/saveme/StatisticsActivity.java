@@ -22,7 +22,6 @@ import java.util.List;
 public class StatisticsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-
     private TransactionAdapter transactionAdapter;
     private List<Transaction> mTransaction;
 
@@ -34,7 +33,6 @@ public class StatisticsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         mTransaction = new ArrayList<>();
 
         readExpenditure();
@@ -43,7 +41,7 @@ public class StatisticsActivity extends AppCompatActivity {
     private void readExpenditure() {
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference mReference = FirebaseDatabase.getInstance()
-                .getReference("transactions").child(firebaseUser.getUid());
+                .getReference(firebaseUser.getUid()).child("TRANSACTION");
 
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -53,9 +51,9 @@ public class StatisticsActivity extends AppCompatActivity {
                     Transaction transaction = snapshot.getValue(Transaction.class);
                     mTransaction.add(transaction);
                 }
+
                 transactionAdapter = new TransactionAdapter(getApplicationContext(), mTransaction);
                 recyclerView.setAdapter(transactionAdapter);
-
             }
 
             @Override

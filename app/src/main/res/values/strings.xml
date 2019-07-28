@@ -6,4 +6,20 @@
     <string name="submit">Submit</string>
     <string name="type_of_income">Type of Income</string>
     <string name="expenditure_type">Expenditure Type</string>
+    <string name="statistics">Statistics</string>
+    <string name="email"><font size="15">Email</font></string>
+    <string name="password"><font size="15">Password</font></string>
+    <string name="register_start_saving"><![CDATA[Register & start saving!]]></string>
+    <string name="register">Register</string>
+    <string name="don_t_have_an_account_click_here_to_register">Don\'t have an account? Click here to register!</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome!</string>
+    <string name="name"><font size="15">Name</font></string>
+    <string name="phone_number"><font size="15">Phone Number</font></string>
+    <string name="email_registration"><font size="15">Email</font></string>
+    <string name="password_registration"><font size="15">Password</font></string>
+    <string name="re_enter_password_registration"><font size="15">Re-enter Password</font></string>
+    <string name="amount_saved">Amount saved:</string>
+    <string name="spending_budget">Spending Budget</string>
+    <string name="done">done</string>
 </resources>

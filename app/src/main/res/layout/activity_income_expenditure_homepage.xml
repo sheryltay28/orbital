@@ -5,33 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ghostWhite"
     tools:context=".IncomeExpenditureHomepageActivity">
 
     <ImageButton
         android:id="@+id/btnIncome"
-
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-
-        android:background="#00FFFFFF"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="@color/transparent"
         android:scaleType="centerCrop"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48"
-
+        app:layout_constraintVertical_bias="0.45"
         app:srcCompat="@drawable/ic_income" />
 
     <ImageButton
         android:id="@+id/btnExpenditure"
 
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
 
-        android:background="#00FFFFFF"
+        android:background="@color/transparent"
         android:scaleType="centerCrop"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,9 +36,37 @@
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48"
+        app:layout_constraintVertical_bias="0.45"
 
         app:srcCompat="@drawable/ic_card" />
+
+    <Button
+        android:id="@+id/btnIncomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Income"
+        android:textColor="@color/navy"
+        android:background="@color/transparent"
+        android:ems="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnIncome"
+        app:layout_constraintStart_toStartOf="@+id/btnIncome"
+        app:layout_constraintTop_toBottomOf="@+id/btnIncome"
+        app:layout_constraintVertical_bias="0"/>
+
+    <Button
+        android:id="@+id/btnExpenditureText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expenditure"
+        android:textColor="@color/navy"
+        android:background="@color/transparent"
+        android:ems="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnExpenditure"
+        app:layout_constraintStart_toStartOf="@+id/btnExpenditure"
+        app:layout_constraintTop_toBottomOf="@+id/btnExpenditure"
+        app:layout_constraintVertical_bias="0" />
 
 </android.support.constraint.ConstraintLayout>
 

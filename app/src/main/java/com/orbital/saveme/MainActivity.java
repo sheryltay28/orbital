@@ -33,14 +33,15 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         updateUI(user);
 
-        //login button go to homepage activity if data entered is correct
+        // login button go to homepage activity if data entered is correct
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signingIn();
             }
         });
-        //registerActivity goes to RegisterActivity if clicked for users to register
+
+        // registerActivity goes to RegisterActivity if clicked for users to register
         registerActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            finish();
-            Intent i = new Intent(MainActivity.this, HomePageActivity.class);
+            final Intent i = new Intent(MainActivity.this, HomePageActivity.class);
             startActivity(i);
+            finish();
         }
     }
 

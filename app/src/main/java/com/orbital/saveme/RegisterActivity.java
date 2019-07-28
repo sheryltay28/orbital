@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.orbital.saveme.model.User;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextView tvRegister, tvLoginActivity;
@@ -30,7 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         setUpViews();
-        //if all boxes are filled up, register button goes to MainActivity, else make toast
+
+        // if all boxes are filled up, register button goes to MainActivity, else make toast
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +49,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 // direct user to MainActivity
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                                Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                                String username = user.getDisplayName();
+                                Intent i = new Intent(RegisterActivity.this, BasicInfomationActivity.class);
                                 startActivity(i);
                             } else {
                                 Toast.makeText(RegisterActivity.this, "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
@@ -58,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        //loginActivity button goes to login page
+        // loginActivity button goes to login page
         tvLoginActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void setUpViews() {
-        tvRegister = findViewById(R.id.tvRegister);
+        tvRegister = findViewById(R.id.tvRegister2);
         tvLoginActivity = findViewById(R.id.tvLoginActivity);
         etName = findViewById(R.id.etName);
         etRegisterPhoneNumber = findViewById(R.id.etRegisterPhoneNumber);
@@ -108,6 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (password.equals(secondPassword)) {
             result = true;
         }
+
         return result;
     }
 
@@ -115,6 +119,6 @@ public class RegisterActivity extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
         User user = new User(name, number);
-        myRef.setValue(user);
+        myRef.child("INFORMATION").setValue(user);
     }
 }

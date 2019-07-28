@@ -15,7 +15,6 @@ import com.orbital.saveme.model.Transaction;
 import java.util.List;
 
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
-
     private final Context mContext;
     private final List<Transaction> mTransaction;
 
@@ -35,6 +34,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         final Transaction transaction = mTransaction.get(position);
+
         if (transaction.getTransactionType().equals("EXPENDITURE")) {
             String text = "-$" + transaction.getAmount();
             viewHolder.tvAmount.setText(text);
@@ -43,7 +43,6 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             String text = "+$" + transaction.getAmount();
             viewHolder.tvAmount.setText(text);
             viewHolder.tvAmount.setTextColor(Color.GREEN);
-
         }
 
         viewHolder.tvTransaction.setText(transaction.getTransactionName());
@@ -55,7 +54,6 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         final TextView tvTransaction;
         final TextView tvAmount;
 

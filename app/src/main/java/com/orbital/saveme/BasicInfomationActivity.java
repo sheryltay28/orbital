@@ -11,15 +11,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.orbital.saveme.model.Transaction;
+import com.orbital.saveme.model.Budget;
 
-import java.util.Date;
-
-public class IncomeEntryActivity extends AppCompatActivity {
-
-    private EditText etIncomeType;
-    private EditText etAmount;
-    private Button btnSubmit;
+public class BasicInfomationActivity extends AppCompatActivity {
+    private EditText etExpenditureBudget, etSavingBudget;
+    private Button doneBtn;
 
     private FirebaseUser mUser;
     private DatabaseReference mReference;
@@ -27,35 +23,33 @@ public class IncomeEntryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_income_entry);
+        setContentView(R.layout.activity_basic_infomation);
 
         setUpBtn();
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submit();
+                done();
             }
         });
     }
 
-    private void setUpBtn() {
-        etIncomeType = findViewById(R.id.etIncomeType);
-        etAmount = findViewById(R.id.etAmount);
-        btnSubmit = findViewById(R.id.btnSubmit);
-
+    public void setUpBtn() {
+        etExpenditureBudget = findViewById(R.id.etExpenditureBudget);
+        etSavingBudget = findViewById(R.id.etSavingsBudget);
+        doneBtn = findViewById(R.id.btnDone);
     }
 
-    private void submit() {
+    public void done() {
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         mReference = FirebaseDatabase.getInstance().getReference();
 
-        String incomeType = etIncomeType.getText().toString();
-        double amount = Double.parseDouble(etAmount.getText().toString());
-        String date = new Date().toString();
-        Transaction income = new Transaction("INCOME", incomeType, amount, date);
+        double expenditureBudget = Double.parseDouble(etExpenditureBudget.getText().toString());
+        double savingBudget = Double.parseDouble(etSavingBudget.getText().toString());
+        Budget budget = new Budget(expenditureBudget, savingBudget);
 
-        mReference.child(mUser.getUid()).child("TRANSACTIONS").child(date).setValue(income);
+        mReference.child(mUser.getUid()).child("BUDGET").setValue(budget);
         startActivity(new Intent(this, HomePageActivity.class));
         finish();
     }
