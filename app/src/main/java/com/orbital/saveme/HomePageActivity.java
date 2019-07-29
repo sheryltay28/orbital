@@ -90,7 +90,7 @@ public class HomePageActivity extends AppCompatActivity {
                 incomeDataButton.setText(Double.toString(user.getIncome()));
                 double saved = user.getIncome() - user.getExpenditure();
                 amtSavedDataButton.setText(Double.toString(saved));
-                amtRemainDataButton.setText(Double.toString(user.getSavingsBudget() - user.getExpenditure()));
+                amtRemainDataButton.setText(Double.toString(user.getSpendingBudget() - user.getExpenditure()));
             }
 
             @Override
