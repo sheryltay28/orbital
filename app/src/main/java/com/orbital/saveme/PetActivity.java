@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.orbital.saveme.model.Progress;
+import com.orbital.saveme.model.User;
 
 public class PetActivity extends AppCompatActivity {
     private Button btnFeed;
@@ -29,24 +30,40 @@ public class PetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pet);
         setUpViews();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
-        mReference = FirebaseDatabase.getInstance().getReference();
-        if (target amount < expenditure) { //if spend more than target amount user cant feed the pet
-            reduceProgress();
-            btnFeed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(PetActivity.this, "Oops you spent more than your target amount today " +
-                            "so your pet will have to go hungry :(", Toast.LENGTH_SHORT).show();
+        mReference = FirebaseDatabase.getInstance().getReference(mUser.getUid()).child("INFORMATION");
+        mReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                double targetAmount = user.getSavingsBudget();
+                double expenditure = user.getExpenditure();
+                if (targetAmount < expenditure) { //if spend more than target amount user cant feed the pet
+                    reduceProgress();
+                    btnFeed.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(PetActivity.this, "Oops you spent more than your target amount today " +
+                                    "so your pet will have to go hungry :(", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    btnFeed.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            feedPet();
+                        }
+                    });
                 }
-            });
-        } else {
-            btnFeed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    feedPet();
-                }
-            });
-        }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
     private void setUpViews() {

@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +27,7 @@ public class StatsIncomeActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Button btnDate, btnIncome, btnExpenditure;
+    private ImageButton btnBack;
     private TransactionAdapter transactionAdapter;
     private List<Transaction> mTransaction;
 
@@ -42,6 +44,7 @@ public class StatsIncomeActivity extends AppCompatActivity {
 
         clickDate();
         clickExpenditure();
+        clickBack();
     }
 
     public void setUpViews() {
@@ -52,6 +55,7 @@ public class StatsIncomeActivity extends AppCompatActivity {
         btnDate = findViewById(R.id.byDate);
         btnIncome = findViewById(R.id.byIncome);
         btnExpenditure = findViewById(R.id.byExpenditure);
+        btnBack = findViewById(R.id.btnPet);
     }
 
     private void readExpenditure() {
@@ -65,7 +69,10 @@ public class StatsIncomeActivity extends AppCompatActivity {
                 mTransaction.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Transaction transaction = snapshot.getValue(Transaction.class);
-                    mTransaction.add(transaction);
+
+                    if (transaction.getTransactionType().equals("INCOME")) {
+                        mTransaction.add(transaction);
+                    }
                 }
 
                 transactionAdapter = new TransactionAdapter(getApplicationContext(), mTransaction);
@@ -89,7 +96,7 @@ public class StatsIncomeActivity extends AppCompatActivity {
     }
 
     public void openStatsDateActivity() {
-        Intent i = new Intent(StatsIncomeActivity.this, StatsIncomeActivity.class);
+        Intent i = new Intent(StatsIncomeActivity.this, StatisticsActivity.class);
         startActivity(i);
     }
 
@@ -104,6 +111,20 @@ public class StatsIncomeActivity extends AppCompatActivity {
 
     public void openStatsExpenditureActivity() {
         Intent i = new Intent(StatsIncomeActivity.this, StatsExpenditureActivity.class);
+        startActivity(i);
+    }
+
+    private void clickBack() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v){
+                openHomePageActivity();
+            }
+        });
+    }
+
+    public void openHomePageActivity() {
+        Intent i = new Intent(StatsIncomeActivity.this, HomePageActivity.class);
         startActivity(i);
     }
 }

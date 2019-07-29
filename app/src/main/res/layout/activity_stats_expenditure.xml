@@ -27,6 +27,18 @@
         app:layout_constraintBottom_toTopOf="@id/byDate"
         app:layout_constraintVertical_bias="1"/>
 
+    <ImageButton
+        android:id="@+id/btnPet"
+        android:background="@color/transparent"
+        android:scaleType="centerCrop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@+id/byDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lGuideLine"
+        app:layout_constraintBottom_toBottomOf="@+id/byDate"
+        app:srcCompat="@drawable/ic_pet_rabbit" />
+
     <Button
         android:id="@+id/byDate"
         android:layout_width="0dp"
@@ -35,8 +47,8 @@
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/aliceBlue"
         app:layout_constraintTop_toBottomOf="@id/recycler_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lGuideLine"
+        app:layout_constraintStart_toStartOf="@+id/lGuideLine"
+        app:layout_constraintEnd_toStartOf="@+id/mGuideLine"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
@@ -47,7 +59,7 @@
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/aliceBlue"
         app:layout_constraintTop_toBottomOf="@id/recycler_view"
-        app:layout_constraintStart_toEndOf="@+id/lGuideLine"
+        app:layout_constraintStart_toEndOf="@+id/mGuideLine"
         app:layout_constraintEnd_toStartOf="@+id/rGuideLine"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -69,7 +81,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33"
+        app:layout_constraintGuide_percent="0.1"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/mGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4"
         />
 
     <android.support.constraint.Guideline
@@ -77,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.66"
+        app:layout_constraintGuide_percent="0.7"
         />
 
 </android.support.constraint.ConstraintLayout>

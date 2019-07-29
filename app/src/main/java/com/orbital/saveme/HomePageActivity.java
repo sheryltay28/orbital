@@ -15,7 +15,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.orbital.saveme.model.Budget;
 import com.orbital.saveme.model.User;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -62,8 +61,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     public void updateInformation() {
         updateUserName();
-        updateAmtSaved();
-        updateAmtRemain();
+        updateData();
     }
 
     public void updateUserName() {
@@ -82,29 +80,17 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
-    public void updateAmtSaved() {
-        DatabaseReference amtSaved = mReference.child(mUser.getUid()).child("BUDGET");
-        amtSaved.addListenerForSingleValueEvent(new ValueEventListener() {
+    public void updateData() {
+        DatabaseReference data = mReference.child(mUser.getUid()).child("INFORMATION");
+        data.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Budget budget = dataSnapshot.getValue(Budget.class);
-                amtSavedDataButton.setText(Double.toString(budget.getSavingsBudget()));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    public void updateAmtRemain() {
-        DatabaseReference amtSaved = mReference.child(mUser.getUid()).child("BUDGET");
-        amtSaved.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Budget budget = dataSnapshot.getValue(Budget.class);
-                amtRemainDataButton.setText(Double.toString(budget.getSpendingBudget()));
+                User user = dataSnapshot.getValue(User.class);
+                expenditureDataButton.setText(Double.toString(user.getExpenditure()));
+                incomeDataButton.setText(Double.toString(user.getIncome()));
+                double saved = user.getIncome() - user.getExpenditure();
+                amtSavedDataButton.setText(Double.toString(saved));
+                amtRemainDataButton.setText(Double.toString(user.getSavingsBudget() - user.getExpenditure()));
             }
 
             @Override
@@ -126,6 +112,7 @@ public class HomePageActivity extends AppCompatActivity {
     public void openPetActivity() {
         Intent i = new Intent(HomePageActivity.this, PetActivity.class);
         startActivity(i);
+        finish();
     }
 
     public void clickDataEntry() {
@@ -148,6 +135,7 @@ public class HomePageActivity extends AppCompatActivity {
         Intent i = new Intent(HomePageActivity.this,
                 IncomeExpenditureHomepageActivity.class);
         startActivity(i);
+        finish();
     }
 
     public void clickStatistics() {
@@ -211,6 +199,7 @@ public class HomePageActivity extends AppCompatActivity {
     public void openStatistics() {
         Intent i = new Intent(HomePageActivity.this, StatisticsActivity.class);
         startActivity(i);
+        finish();
     }
 
     public void clickSetting() {
@@ -225,6 +214,7 @@ public class HomePageActivity extends AppCompatActivity {
     public void openSetting() {
         Intent i = new Intent(HomePageActivity.this, MenuBarActivity.class);
         startActivity(i);
+        finish();
     }
 
 }

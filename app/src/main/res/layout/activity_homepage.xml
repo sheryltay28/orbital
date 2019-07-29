@@ -38,12 +38,14 @@
         app:layout_constraintVertical_bias="0.4"
         app:srcCompat="@drawable/ic_pet_rabbit" />
 
+
     <Button
         android:id="@+id/btnUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
         android:text=""
+        android:textStyle="bold"
         android:textColor="@color/navy"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -69,7 +71,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toTopOf="@id/btnPet"
         app:layout_constraintVertical_bias="0.45"
-        app:srcCompat="@drawable/ic_wallet" />
+        app:srcCompat="@drawable/ic_data_entry_wallet" />
 
     <Button
         android:id="@+id/btnEntryText"
@@ -105,6 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        android:textStyle="bold"
         android:textAlignment="textStart"
         android:background="@color/transparent"
         android:textColor="@color/navy"
@@ -113,6 +116,20 @@
         app:layout_constraintStart_toEndOf="@id/btnAmtSaved"
         app:layout_constraintTop_toTopOf="@id/btnAmtSaved"
         app:layout_constraintHorizontal_bias="0.05" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total amount saved"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAmtSaved"
+        app:layout_constraintEnd_toEndOf="@+id/btnAmtSaved"
+        app:layout_constraintStart_toStartOf="@+id/btnAmtSaved"
+        app:layout_constraintTop_toTopOf="@+id/btnAmtSaved"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="1"/>
 
     <Button
         android:id="@+id/btnAmtRemain"
@@ -134,6 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        android:textStyle="bold"
         android:textAlignment="textStart"
         android:background="@color/transparent"
         android:textColor="@color/navy"
@@ -143,11 +161,25 @@
         app:layout_constraintTop_toTopOf="@id/btnAmtRemain"
         app:layout_constraintHorizontal_bias="0.05"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount left for spending"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAmtRemain"
+        app:layout_constraintEnd_toEndOf="@+id/btnAmtRemain"
+        app:layout_constraintStart_toStartOf="@+id/btnAmtRemain"
+        app:layout_constraintTop_toTopOf="@+id/btnAmtRemain"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="1"/>
+
     <Button
         android:id="@+id/btnIncome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Income:"
+        android:text="Total Income:"
         android:textAlignment="textStart"
         android:background="@color/transparent"
         android:textColor="@color/navy"
@@ -163,6 +195,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        android:textStyle="bold"
         android:textAlignment="textStart"
         android:background="@color/transparent"
         android:textColor="@color/navy"
@@ -170,13 +203,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnExpenditure"
         app:layout_constraintTop_toTopOf="@id/btnIncome"
-        app:layout_constraintHorizontal_bias="0.05"/>
+        app:layout_constraintHorizontal_bias="0.15"/>
 
     <Button
         android:id="@+id/btnExpenditure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expenditure:"
+        android:text="Total Expenditure:"
         android:textAlignment="textStart"
         android:background="@color/transparent"
         android:textColor="@color/navy"
@@ -192,6 +225,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        android:textStyle="bold"
         android:textAlignment="textStart"
         android:background="@color/transparent"
         android:textColor="@color/navy"
@@ -199,7 +233,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnExpenditure"
         app:layout_constraintTop_toTopOf="@id/btnExpenditure"
-        app:layout_constraintHorizontal_bias="0.05"/>
+        app:layout_constraintHorizontal_bias="0.15"/>
 </android.support.constraint.ConstraintLayout>
 
 
