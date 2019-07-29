@@ -7,11 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".PetActivity">
 
-    <TextView
-        android:id="@+id/pet"
+    <ImageView
+        android:id="@+id/ImageRabbit"
+        android:layout_width="182dp"
+        android:layout_height="201dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pgrsBarRabbit"
+        app:layout_constraintVertical_bias="0.056"
+        app:srcCompat="@drawable/ic_pet_rabbit" />
+
+    <ProgressBar
+        android:id="@+id/pgrsBarRabbit"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="104dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:indeterminate="false"
+        android:progress="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <Button
+        android:id="@+id/btnFeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pet"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="371dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Feed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageRabbit"
+        app:layout_constraintVertical_bias="0.129" />
 </android.support.constraint.ConstraintLayout>
