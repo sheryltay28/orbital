@@ -1,16 +1,18 @@
 package com.orbital.saveme.model;
 
+import java.util.Date;
+
 public class Transaction {
 
     private String transactionType;
     private String transactionName;
     private double amount;
-    private String date;
+    private Date date;
 
     public Transaction() {
     }
 
-    public Transaction(String transactionType, String transactionName, double amount, String date) {
+    public Transaction(String transactionType, String transactionName, double amount, Date date) {
         this.transactionType = transactionType;
         this.transactionName = transactionName;
         this.amount = amount;
@@ -41,11 +43,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

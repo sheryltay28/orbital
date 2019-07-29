@@ -22,7 +22,7 @@ import com.orbital.saveme.model.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatisticsActivity extends AppCompatActivity {
+public class StatsExpenditureActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Button btnDate, btnIncome, btnExpenditure;
@@ -32,7 +32,7 @@ public class StatisticsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics);
+        setContentView(R.layout.activity_stats_expenditure);
 
         setUpViews();
 
@@ -41,7 +41,7 @@ public class StatisticsActivity extends AppCompatActivity {
         readExpenditure();
 
         clickIncome();
-        clickExpenditure();
+        clickDate();
     }
 
     public void setUpViews() {
@@ -89,21 +89,21 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     public void openStatsIncomeActivity() {
-        Intent i = new Intent(StatisticsActivity.this, StatsIncomeActivity.class);
+        Intent i = new Intent(StatsExpenditureActivity.this, StatsIncomeActivity.class);
         startActivity(i);
     }
 
-    private void clickExpenditure() {
-        btnExpenditure.setOnClickListener(new View.OnClickListener() {
+    private void clickDate() {
+        btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v){
-                openStatsExpenditureActivity();
+                openStatsDateActivity();
             }
         });
     }
 
-    public void openStatsExpenditureActivity() {
-        Intent i = new Intent(StatisticsActivity.this, StatsExpenditureActivity.class);
+    public void openStatsDateActivity() {
+        Intent i = new Intent(StatsExpenditureActivity.this, StatisticsActivity.class);
         startActivity(i);
     }
 }

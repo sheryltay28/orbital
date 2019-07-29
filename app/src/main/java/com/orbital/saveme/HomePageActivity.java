@@ -82,15 +82,13 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
-    // wrong value
     public void updateAmtSaved() {
         DatabaseReference amtSaved = mReference.child(mUser.getUid()).child("BUDGET");
         amtSaved.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Budget budget = dataSnapshot.getValue(Budget.class);
-                double savingBudget = budget.getSavingsBudget();
-                amtSavedDataButton.setText(Double.toString(savingBudget));
+                amtSavedDataButton.setText(Double.toString(budget.getSavingsBudget()));
             }
 
             @Override

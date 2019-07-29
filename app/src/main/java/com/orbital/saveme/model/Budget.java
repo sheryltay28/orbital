@@ -23,7 +23,7 @@ public class Budget {
         return savingsBudget;
     }
 
-    public void setSavingsBudget(double userNumber) {
+    public void setSavingsBudget(double savingsBudget) {
         this.savingsBudget = savingsBudget;
     }
 }

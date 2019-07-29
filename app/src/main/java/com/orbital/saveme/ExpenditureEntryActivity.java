@@ -51,11 +51,12 @@ public class ExpenditureEntryActivity extends AppCompatActivity {
 
         String expenditureType = etExpenditureType.getText().toString();
         double amount = Double.parseDouble(etAmount.getText().toString());
-        String date = new Date().toString();
+        Date date = new Date();
         Transaction expenditure = new Transaction("EXPENDITURE", expenditureType,
                 amount, date);
 
-        mReference.child(mUser.getUid()).child("TRANSACTIONS").child(date).setValue(expenditure);
+        mReference.child(mUser.getUid()).child("TRANSACTIONS").child(Long.toString(date.getTime()))
+                .setValue(expenditure);
         startActivity(new Intent(this, HomePageActivity.class));
         finish();
     }

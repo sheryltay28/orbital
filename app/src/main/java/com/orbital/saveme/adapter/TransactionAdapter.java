@@ -42,10 +42,15 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         } else {
             String text = "+$" + transaction.getAmount();
             viewHolder.tvAmount.setText(text);
-            viewHolder.tvAmount.setTextColor(Color.GREEN);
+            viewHolder.tvAmount.setTextColor(Color.BLUE);
         }
 
         viewHolder.tvTransaction.setText(transaction.getTransactionName());
+        viewHolder.tvTransaction.setTextColor(Color.DKGRAY);
+
+        viewHolder.tvDate.setText(transaction.getDate().toString().substring(0, 10)
+                + transaction.getDate().toString().substring(29, 34)
+                + transaction.getDate().toString().substring(10, 16));
     }
 
     @Override
@@ -56,12 +61,14 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         final TextView tvTransaction;
         final TextView tvAmount;
+        final TextView tvDate;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             tvTransaction = itemView.findViewById(R.id.tvExpenditure);
             tvAmount = itemView.findViewById(R.id.tvAmount);
+            tvDate = itemView.findViewById(R.id.tvDate);
         }
     }
 }

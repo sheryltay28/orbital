@@ -52,10 +52,11 @@ public class IncomeEntryActivity extends AppCompatActivity {
 
         String incomeType = etIncomeType.getText().toString();
         double amount = Double.parseDouble(etAmount.getText().toString());
-        String date = new Date().toString();
+        Date date = new Date();
         Transaction income = new Transaction("INCOME", incomeType, amount, date);
 
-        mReference.child(mUser.getUid()).child("TRANSACTIONS").child(date).setValue(income);
+        mReference.child(mUser.getUid()).child("TRANSACTIONS").child(Long.toString(date.getTime()))
+                .setValue(income);
         startActivity(new Intent(this, HomePageActivity.class));
         finish();
     }
